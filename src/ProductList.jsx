@@ -241,6 +241,11 @@ function ProductList() {
         textDecoration: 'none',
     }
 
+    const styleB = {
+        display: 'flex',
+        'justify-content': 'center',
+    }
+
     const handleCartClick = (e) => {
         e.preventDefault();
         setShowPlants(false);
@@ -266,7 +271,8 @@ function ProductList() {
     };
 
     const calculateTotalQuantity = (e) => {
-        return cart.reduce((total, item) => total + item.quantity, 0);
+        //return cart.reduce((total, item) => total + item.quantity, 0);
+        return cart.length;
     }
 
     return (
@@ -275,7 +281,7 @@ function ProductList() {
                 <div className="tag">
                     <div className="luxury">
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                        <a href="/" style={{ textDecoration: 'none' }}>
+                        <a href="/e-plantShopping" style={{ textDecoration: 'none' }}>
                             <div className='tag_home_link'>
                                 <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
@@ -307,7 +313,7 @@ function ProductList() {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1><div className='plant_heading'>{category.category}</div></h1>
+                            <div style={styleB}><h1 className='plant_heading'>{category.category}</h1></div>
                             <div className="product-list">
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className="product-card" key={plantIndex}>
